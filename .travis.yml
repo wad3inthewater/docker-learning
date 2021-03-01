@@ -1,0 +1,12 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t wad3inthewater/docker-learing -f Dockerfile.dev . #gets back an id each time docker build runs
+
+script:
+  - docker run -e CI=true wad3inthewater/docker-learing npm run test -- --coverage
+# script:
+#   - docker run USERNAME/docker-react npm run test -- --coverage
