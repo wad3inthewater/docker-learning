@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    build:
+      #specify the folder we want to use for the build
+      context: .
+      # point to the file to use for building the image
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # specify that we do not want to link the for for node modules the cotainer should use it's own
+      - /app/node_modules
+      # link the root folder to the app folder
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    #over the default command from the docker container used to build
+    command: ["npm", "run", "test"]
