@@ -8,5 +8,19 @@ before_install:
 
 script:
   - docker run -e CI=true wad3inthewater/docker-learing npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-app"
+  env: "Dockerapp-env"
+  bucket_name: "elasticbeanstalk-us-east-1-298327392140"
+  bucket_path: "docker-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 # script:
 #   - docker run USERNAME/docker-react npm run test -- --coverage
+# access_key_id: $AWS_ACCESS_KEY
+# secret_access_key: $AWS_SECRET_KEY
