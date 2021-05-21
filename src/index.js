@@ -11,6 +11,12 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// with great power comes great responsibility
+// death is the only guarantee of life
+// we wage war for peace
+// 1 more time, we're going to celebrate
+// last one
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
